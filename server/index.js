@@ -10,8 +10,14 @@ import path from "path";
 import { fileURLToPath, urlToHttpOptions } from "url";
 import authRoutes from "./routes/auth.js";
 
+import postRoutes from "./routes/post.js";
 import userRoutes from "./routes/users.js";
 import { register } from "./controllers/auth.js";
+import { verifyToken } from "./middleware/auth.js";
+import { createPost } from "./controllers/post.js";
+import User from "./models/User.js";
+import Post from "./models/Post.js";
+import { users, posts } from "./data/index.js";
 
 // Configurations:
 
@@ -46,6 +52,7 @@ const upload = multer({ storage });
 /* ROUTES WITH FILES */
 
 app.post("/auth/register", upload.single("picture"), register);
+app.post("/posts", verifyToken, upload.single("picture"), createPost);
 
 /* ROUTES */
 app.use("/auth", authRoutes);
@@ -63,5 +70,8 @@ mongoose
     app.listen(PORT, () => {
       console.log(`Server Port: ${PORT}`);
     });
+
+    /* ADD THIS DATA ONE TIME */
+    // User.insertMany(users);
   })
   .catch((err) => console.log(`${err} did not connect`));
