@@ -2,6 +2,7 @@ import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 import Form from "./Form";
 
 const LoginPage = () => {
+  console.log("This is the Process: ",process.env.REACT_APP_BACKEND_URL);
   const theme = useTheme();
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
   return (
