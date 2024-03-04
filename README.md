@@ -1,5 +1,8 @@
 # Socialify
 
+![Screenshot from 2024-03-04 16-38-09](https://github.com/SaMMYFrosT221b/Social_Media_Flipr_Hackathon/assets/64640663/d7a28cab-e044-4fea-930d-c585f329ec1a)
+
+
 ## Overview
 Socialify is a social media platform inspired by Instagram. It allows users to connect with friends, share posts, and interact with each other. The platform provides a space for users to explore database relationships, user authentication, and the creation of an attractive social media interface.
 
